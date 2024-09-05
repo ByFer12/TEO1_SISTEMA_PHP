@@ -15,18 +15,26 @@
     <h1>hola</h1>
     <div id="scoreBoard" style="display:none;">
         <h3>Tabla de clasificación</h3>
-        <table>
+        <?php if (isset($scores) && is_array($scores)) : ?>
+    <table>
+        <thead>
             <tr>
-                <th>Usuario</th>
-                <th>Puntuación</th>
+                <th>Username</th>
+                <th>Score</th>
             </tr>
-            <?php foreach ($score as $scores): ?>
+        </thead>
+        <tbody>
+            <?php foreach ($scores as $score) : ?>
                 <tr>
-                    <td><?php echo $score['username']; ?></td>
-                    <td><?php echo $score['score']; ?></td>
+                    <td><?= htmlspecialchars($score['username']); ?></td>
+                    <td><?= htmlspecialchars($score['score']); ?></td>
                 </tr>
             <?php endforeach; ?>
-        </table>
+        </tbody>
+    </table>
+<?php else : ?>
+    <p>No se encontraron puntajes.</p>
+<?php endif; ?>
     </div>
 
     <!-- Modal -->

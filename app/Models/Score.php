@@ -1,5 +1,6 @@
 <?php
-require_once 'database/db.php';
+$root = dirname(__DIR__, 2); // Subimos dos niveles para llegar a la raíz del proyecto
+require_once $root . '/database/db.php';
 
 class Score
 {
@@ -17,8 +18,7 @@ class Score
         $stmt->execute(['user_id' => $userId, 'score' => $score]);
     }
 
-    public function getAllScores()
-    {
+    public function getAllScores(){
         $stmt = $this->db->query("SELECT users.username, scores.score 
                                   FROM scores 
                                   JOIN users ON scores.user_id = users.id 
@@ -26,8 +26,20 @@ class Score
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getIdUser($userName){
-        $stmt=$this->db->prepare('"SELECT id FROM users WHERE username = :username LIMIT 1"');
 
+    public function getIdUser($userName){
+        $stmt = $this->db->prepare('SELECT id FROM users WHERE username = :username LIMIT 1');
+    
+        // Vincular el parámetro de la consulta
+        $stmt->bindParam(':username', $userName);
+    
+        // Ejecutar la consulta
+        $stmt->execute();
+    
+        // Obtener el resultado
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // Retornar el ID si se encuentra el usuario, de lo contrario, null
+        return $user ? $user['id'] : null;
     }
 }

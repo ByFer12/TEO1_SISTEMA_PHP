@@ -78,6 +78,7 @@ function hideModal() {
 
 //verifica si la opcion seleccionada es la correcta
 function checkAnswer() {
+    //obtiene el valor del radio seleccionado
     const selectedAnswer = document.querySelector('input[name="radioGroup"]:checked');
     if (!selectedAnswer) {
         //("Error", "Por favor, selecciona una respuesta");
@@ -101,13 +102,10 @@ function checkAnswer() {
     setTimeout(() => {
         hideModal();
         loadQuestion(currentQuestionIndex);
-    }, 2000); // Esperar 2 segundos antes de cargar la siguiente pregunta
+    }, 1000); // Esperar 2 segundos antes de cargar la siguiente pregunta
 }
 
 function endGame() {
-    document.getElementById("game").style.display = "none";
-    const scoreBoard = document.getElementById("scoreBoard");
-    scoreBoard.style.display = "block";
    // scoreBoard.innerHTML = `<h2>Juego terminado</h2><p>Tu puntuación final es: ${score} de ${questions.length * 10}</p>`;
     //AQUI LE ENVIO LOS DATOS AL SERVIDOR
 
@@ -126,6 +124,11 @@ function endGame() {
     .catch((error) => {
         console.error('Error al enviar el score:', error);
     });
+
+    
+    document.getElementById("game").style.display = "none";
+    const scoreBoard = document.getElementById("scoreBoard");
+    scoreBoard.style.display = "block";
 }
 
 document.addEventListener("DOMContentLoaded", function () {

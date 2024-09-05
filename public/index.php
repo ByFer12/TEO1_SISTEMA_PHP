@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Obtener la ruta absoluta al directorio raíz del proyecto
 $root = dirname(__DIR__);
 
