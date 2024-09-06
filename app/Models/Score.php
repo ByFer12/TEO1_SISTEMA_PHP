@@ -23,6 +23,8 @@ class Score
                                   FROM scores 
                                   JOIN users ON scores.user_id = users.id 
                                   ORDER BY score DESC");
+
+      //  echo 'dentro de getAll '.$stmt;
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

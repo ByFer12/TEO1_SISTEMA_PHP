@@ -20,7 +20,7 @@ class HomeController {
             $_SESSION['user']=$username;
             $user = new User();
             $user->save($username);
-            header('Location: index.php?page=convert');
+            header('Location: index.php?page=game');
         }
     }
 }

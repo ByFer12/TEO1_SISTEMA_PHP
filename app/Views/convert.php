@@ -7,10 +7,13 @@
     </form>
 
     <?php if (isset($mayaRepresentation)): ?>
-        <div>
-            <h3>Representación Maya:</h3>
+        <div class="maya">
+            <h3>Representación Maya de: <?php echo $_POST['number'];?></h3>
             <!-- Aquí se mostraría la representación del número en el sistema maya -->
+            
+            <div class="maya1">
             <p><?php echo $mayaRepresentation; ?></p>
+            </div>
         </div>
     <?php endif; ?>
 </main>

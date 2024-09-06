@@ -14,5 +14,5 @@
         <a href="index.php?page=game">Juego</a>
     </nav>
     <header>
-        <h1>Bienvenido al Maya Game</h1>
+        <h1>Bienvenido <?php echo $_SESSION['user'] ?> al Maya Game</h1>
     </header>

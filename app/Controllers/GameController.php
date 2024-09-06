@@ -25,21 +25,25 @@ class GameController
             $scoreModel = new Score();
             $user = $_SESSION['user'];
 
-            echo 'Usuario '.$user. ' Score: '.$score;
+            echo 'Usuario ' . $user . ' Score: ' . $score;
             $userID = $scoreModel->getIdUser($user);
-            echo 'ID: '.$userID.' Usuario '.$user. ' Score: '.$score;
+            echo 'ID: ' . $userID . ' Usuario ' . $user . ' Score: ' . $score;
             $scoreModel->save($userID, $score);
             //header('Location: index.php?page=home');
-            
+
         }
     }
 
     public function endGame()
     {
         $score = new Score();
-        $scores = $score->getAllScores(); // Obtén todos los puntajes
-        include __DIR__ . '/../Views/game.php'; // Pasa $scores a la vista
+        $scores = $score->getAllScores();
+    
+        // Devolver los datos como JSON
+        header('Content-Type: application/json');
+        echo json_encode($scores);
     }
+    
 }
 /*
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {

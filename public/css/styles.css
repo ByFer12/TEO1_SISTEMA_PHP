@@ -3,20 +3,102 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e6cccc;
+    background-color: #eaf5b9;
+}
+.maya-level{
+    padding:12px;
+    width: 110px;
+}
+.maya-number {
+    display: inline-block;
+    text-align: center;
+    margin: 1px;
+}
+#scoreBoard{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.maya{
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.maya1{
+    display: inline-block; /* Hace que el div se comporte como un inline element */
+    width: 100px;
+    height: 100px;
+
+}
+.dots {
+    font-size: 34px;  /* Tamaño de los puntos */
 }
 
+.bars .bar {
+    font-size: 38px;  /* Tamaño de las barras */
+    margin: 1px 0;    /* Espaciado entre barras */
+}
+
+.maya-zero {
+    font-size: 50px;  /* Tamaño de la concha (símbolo para 0) */
+    color: #777;      /* Color para diferenciar el cero */
+}
+
+
+.tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imagen {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.imagen:hover {
+    transform: scale(1.1); /* Aumenta la imagen en un 10% */
+}
+
+.contenido {
+    flex: 1;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+p {
+    color: #555;
+    margin: 5px 0;
+}
 nav {
     background-color: #333;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 3px;
 }
 
 nav a {
     color: white;
-    margin: 0 15px;
+    margin: 0 30px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 nav a:hover {
@@ -26,12 +108,12 @@ nav a:hover {
 header {
     background-color: #444;
     color: white;
-    padding: 15px 0;
+    padding: 2px 0;
     text-align: center;
 }
 
 main {
-    padding: 20px;
+    padding: 5px;
     text-align: center;
 }
 
